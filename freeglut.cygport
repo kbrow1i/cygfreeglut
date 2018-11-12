@@ -1,0 +1,24 @@
+NAME="freeglut"
+VERSION=3.0.0
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="OpenGL Utility Toolkit library"
+DESCRIPTION="freeglut is a completely OpenSourced alternative to the OpenGL
+Utility Toolkit (GLUT) library. GLUT was originally written by Mark Kilgard to
+support the sample programs in the second edition OpenGL 'RedBook'. Since then,
+GLUT has been used in a wide variety of practical applications because it is
+simple, widely available and highly portable. GLUT (and hence freeglut) allows
+the user to create and manage windows containing OpenGL contexts on a wide
+range of platforms and also read the mouse, keyboard and joystick functions."
+HOMEPAGE="http://freeglut.sourceforge.net/"
+SRC_URI="mirror://sourceforge/freeglut/freeglut-${VERSION}.tar.gz"
+
+PKG_NAMES="libglut3 libglut-devel"
+libglut3_CONTENTS="usr/bin/cygglut-3.dll"
+libglut_devel_CONTENTS="usr/include/ usr/lib/ usr/share/doc/"
+
+DOCS="doc/*.html doc/*.png"
+
+DEPEND="libXext-devel libGL-devel libICE-devel libXi-devel libGLU-devel"
+
+inherit cmake
