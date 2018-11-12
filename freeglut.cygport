@@ -1,6 +1,6 @@
 NAME="freeglut"
-VERSION=3.0.0
-RELEASE=1
+VERSION=3.1
+RELEASE=0.1
 CATEGORY="X11"
 SUMMARY="OpenGL Utility Toolkit library"
 DESCRIPTION="freeglut is a completely OpenSourced alternative to the OpenGL
@@ -11,7 +11,12 @@ simple, widely available and highly portable. GLUT (and hence freeglut) allows
 the user to create and manage windows containing OpenGL contexts on a wide
 range of platforms and also read the mouse, keyboard and joystick functions."
 HOMEPAGE="http://freeglut.sourceforge.net/"
-SRC_URI="mirror://sourceforge/freeglut/freeglut-${VERSION}.tar.gz"
+# SRC_URI="mirror://sourceforge/freeglut/freeglut-${VERSION}.tar.gz"
+
+GIT_URI="https://github.com/dcnieho/FreeGLUT.git"
+GIT_BRANCH="git_master"
+inherit cmake git
+SRC_DIR="FreeGLUT/freeglut/freeglut"
 
 PKG_NAMES="libglut3 libglut-devel"
 libglut3_CONTENTS="usr/bin/cygglut-3.dll"
@@ -20,5 +25,3 @@ libglut_devel_CONTENTS="usr/include/ usr/lib/ usr/share/doc/"
 DOCS="doc/*.html doc/*.png"
 
 DEPEND="libXext-devel libGL-devel libICE-devel libXi-devel libGLU-devel"
-
-inherit cmake
