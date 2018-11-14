@@ -17,6 +17,14 @@ PKG_NAMES="libglut3 libglut-devel"
 libglut3_CONTENTS="usr/bin/cygglut-3.dll"
 libglut_devel_CONTENTS="usr/include/ usr/lib/ usr/share/doc/"
 
+# On x86 only, the previous release had a freeglut-doc package.
+# We'll have to carry that along for a while.
+if [ "${ARCH}" == "i686" ]
+then
+    PKG_NAMES+=" freeglut-doc"
+    libglut_devel_OBSOLETES="freeglut-doc"
+fi
+
 DOCS="doc/*.html doc/*.png"
 
 DEPEND="libXext-devel libGL-devel libICE-devel libXi-devel libGLU-devel"
